@@ -13,17 +13,7 @@ void f(int) {}
 
 #endif
 
-void main()
+int main()
 {
 	f(2);
-}
-
-int CALLBACK WinMain(
-	HINSTANCE   hInstance,
-	HINSTANCE   hPrevInstance,
-	LPSTR       lpCmdLine,
-	int         nCmdShow
-)
-{
-	return 0;
 }
