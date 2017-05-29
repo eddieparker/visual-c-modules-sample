@@ -1,16 +1,11 @@
-//#define USE_MODULES
+#define USE_MODULES
 
 #ifdef USE_MODULES
 import api;
 #endif
 
-#define WIN32_LEAN_AND_MEAN
-#include "windows.h"
-
 #ifndef USE_MODULES
-
-void f(int) {}
-
+void f(int) {} // EP_HACK: Stub for testing out modules vs. non-modules
 #endif
 
 int main()
