@@ -153,11 +153,20 @@
     <CustomBuild Include="api.ixx">
       <FileType>Document</FileType>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/experimental:module %(AdditionalOptions)</AdditionalOptions>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Tools\MSVC\14.10.25017\bin\HostX86\x64\CL.exe" /c /ZI /nologo /W3 /WX- /diagnostics:classic /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"D:\Dev\Personal\ModulesTest\_intermediate\x64\Debug\\" /Fd"D:\Dev\Personal\ModulesTest\_intermediate\x64\Debug\vc141.pdb" /Gd /TP /errorReport:prompt /experimental:module %(Identity)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(VC_PGO_RunTime_Dir)\CL.exe" /experimental:module /c "%(FullPath)" /ZI /nologo /W3 /WX- /diagnostics:classic /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"$(IntermediateOutputPath)%(Filename).obj" /Fd"$(IntermediateOutputPath)vc141.pdb" /Gd /TP /errorReport:prompt /module:output"$(IntermediateOutputPath)%(Filename).ifc"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building %(Identity)</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).ifc;%(Filename).obj;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntermediateOutputPath)%(Filename).ifc;$(IntermediateOutputPath)%(Filename).obj;%(Outputs)</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkObjects>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(VC_PGO_RunTime_Dir)\CL.exe" /experimental:module /c "%(FullPath)" /ZI /nologo /W3 /WX- /diagnostics:classic /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"$(IntermediateOutputPath)%(Filename).obj" /Fd"$(IntermediateOutputPath)vc141.pdb" /Gd /TP /errorReport:prompt /module:output"$(IntermediateOutputPath)%(Filename).ifc"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(VC_PGO_RunTime_Dir)\CL.exe" /experimental:module /c "%(FullPath)" /ZI /nologo /W3 /WX- /diagnostics:classic /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"$(IntermediateOutputPath)%(Filename).obj" /Fd"$(IntermediateOutputPath)vc141.pdb" /Gd /TP /errorReport:prompt /module:output"$(IntermediateOutputPath)%(Filename).ifc"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(VC_PGO_RunTime_Dir)\CL.exe" /experimental:module /c "%(FullPath)" /ZI /nologo /W3 /WX- /diagnostics:classic /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"$(IntermediateOutputPath)%(Filename).obj" /Fd"$(IntermediateOutputPath)vc141.pdb" /Gd /TP /errorReport:prompt /module:output"$(IntermediateOutputPath)%(Filename).ifc"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building %(Identity)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntermediateOutputPath)%(Filename).ifc;$(IntermediateOutputPath)%(Filename).obj;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntermediateOutputPath)%(Filename).ifc;$(IntermediateOutputPath)%(Filename).obj;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntermediateOutputPath)%(Filename).ifc;$(IntermediateOutputPath)%(Filename).obj;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building %(Identity)</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building %(Identity)</Message>
     </CustomBuild>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
